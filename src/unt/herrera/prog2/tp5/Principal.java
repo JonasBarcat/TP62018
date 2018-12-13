@@ -7,6 +7,7 @@ package unt.herrera.prog2.tp5;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -60,9 +61,9 @@ public class Principal {
         
         
         
-       // devuelve un array con las areas similares a la buscada
+       // devuelve un list con las areas similares a la buscada
        System.out.print("\n\n Lista de resultados de la busqueda: \n");
-        ArrayList<Area> resultadosareas;
+        List<Area> resultadosareas;
         
         resultadosareas=ga.buscarAreas("ware");
             for(Area i: resultadosareas){
@@ -114,7 +115,7 @@ public class Principal {
          
          
           System.out.println("\n\n Busqueda de profesores por similitud en apellido:");
-          ArrayList<Profesor> resultadosprofesores; // FILTRO BUSQUEDA PROF POR APELLIDO (SIMILARES)
+          List<Profesor> resultadosprofesores; // FILTRO BUSQUEDA PROF POR APELLIDO (SIMILARES)
           resultadosprofesores=gp.buscarProfesores("Bar");
           if(resultadosprofesores.isEmpty()){System.out.println("No se encontraron resultados");}
                for(Profesor i: resultadosprofesores){
@@ -139,7 +140,7 @@ public class Principal {
                   
                   
             System.out.println("\n\n Busqueda de alumnos por similitud en apellido:");      
-             ArrayList<Alumno> resultadosalumnos; //FILTRO BUSQUEDA ALUMNO POR APELLIDO (SIMILARES)
+             List<Alumno> resultadosalumnos; //FILTRO BUSQUEDA ALUMNO POR APELLIDO (SIMILARES)
              resultadosalumnos=gp.buscarAlumnos("Anc");
                 if(resultadosalumnos.isEmpty()){System.out.println("No se encontraron resultados");}
                 for(Alumno i: resultadosalumnos){
@@ -195,7 +196,7 @@ public class Principal {
    
             GestorRolEnTrabajo gret = GestorRolEnTrabajo.crear();
             RolEnTrabajo rolentrabajo;
-            ArrayList<RolEnTrabajo> listarolentrabajo= new ArrayList<>();
+            List<RolEnTrabajo> listarolentrabajo= new ArrayList<>();
             
             rolentrabajo=gret.nuevoRolEnTrabajo(LocalDate.of(2018,11,30),gp.dameProfesor(16091180), Rol.TUTOR);
                listarolentrabajo.add(rolentrabajo);
@@ -210,7 +211,7 @@ public class Principal {
            
             
             GestorAlumnoEnTrabajo gaet =GestorAlumnoEnTrabajo.crear();
-             ArrayList<AlumnoEnTrabajo>listaalumnoentrabajo=new ArrayList<>();
+             List<AlumnoEnTrabajo>listaalumnoentrabajo=new ArrayList<>();
              AlumnoEnTrabajo alumnoentrabajo;
                
             alumnoentrabajo=gaet.nuevoAlumnoEnTrabajo(LocalDate.of(2018,12,2), gp.dameAlumno("1303004"));
@@ -234,17 +235,17 @@ public class Principal {
           
           // informacion para el trabajo 1
           
-          ArrayList<Area> areastrabajo1 = new ArrayList<>();
+          List<Area> areastrabajo1 = new ArrayList<>();
           areastrabajo1.add(ga.dameArea("Software"));
           areastrabajo1.add(ga.dameArea("Hardware"));
    
-          ArrayList<RolEnTrabajo> profesortrabajo1 = new ArrayList<>();
+          List<RolEnTrabajo> profesortrabajo1 = new ArrayList<>();
           profesortrabajo1.add(listarolentrabajo.get(0)); 
           profesortrabajo1.add(listarolentrabajo.get(3)); 
           profesortrabajo1.add(listarolentrabajo.get(2));
           profesortrabajo1.add(listarolentrabajo.get(1));
           
-          ArrayList<AlumnoEnTrabajo> alumnoentrabajo1=new ArrayList<>();
+          List<AlumnoEnTrabajo> alumnoentrabajo1=new ArrayList<>();
           alumnoentrabajo1.add(listaalumnoentrabajo.get(0));
      
           alumnoentrabajo1.add(listaalumnoentrabajo.get(1));
@@ -256,7 +257,7 @@ public class Principal {
             System.out.println(mensaje2);
             mensaje2=gt.nuevoTrabajo("Global Wireless", 6, LocalDate.of(2018,11,27), LocalDate.of(2018, 11, 27),areastrabajo1,profesortrabajo1,alumnoentrabajo1);
             System.out.println(mensaje2);
-            // el siguiente trabajo es un "trabajo con el mismo nombre", entonces no lo añade al array de trabajos
+            // el siguiente trabajo es un "trabajo con el mismo nombre", entonces no lo añade al list de trabajos
             mensaje2=gt.nuevoTrabajo("Big data research", 6, LocalDate.of(2018,11,27), LocalDate.of(2018, 11, 27),areastrabajo1,profesortrabajo1,alumnoentrabajo1);
             System.out.println(mensaje2);
             
@@ -281,7 +282,7 @@ public class Principal {
             
             //Busqueda de trabajo por coincidencias
             System.out.println("\n\n\n    Busqueda de Trabajos por coincidencias:\n");
-            ArrayList<Trabajo> coincidencias;
+            List<Trabajo> coincidencias;
             
             coincidencias=gt.buscarTrabajos("Wireless"); //filtro especificado
             for(Trabajo i: coincidencias){
