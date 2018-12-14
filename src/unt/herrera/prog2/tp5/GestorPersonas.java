@@ -12,7 +12,7 @@ import java.util.List;
 /**
  *
  * @author jonas
- */
+ */  //LISTO
 public class GestorPersonas implements IGestorPersonas{
     
     List<Persona> listaPersona= new ArrayList<>();
