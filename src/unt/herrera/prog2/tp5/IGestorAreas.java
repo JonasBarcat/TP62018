@@ -17,7 +17,8 @@ public interface IGestorAreas {
     public void mostrarAreas(); 
     public Area dameArea(String nombre); 
     public List<Area> buscarAreas(String nombre); 
-    public void ordenarAreas(List<Area> listadodeareas);
+
+    
 
     
 }

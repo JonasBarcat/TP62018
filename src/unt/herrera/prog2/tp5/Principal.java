@@ -25,6 +25,10 @@ public class Principal {
        
        // USO DE METODOS
       //creacion de areas
+        mensaje=ga.nuevaArea("Arsware");
+        System.out.println(mensaje);
+        mensaje=ga.nuevaArea("Basware");
+        System.out.println(mensaje);
         mensaje=ga.nuevaArea("Hardware");
         System.out.println(mensaje);
         mensaje=ga.nuevaArea("Malware");
