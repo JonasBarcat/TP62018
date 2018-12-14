@@ -7,6 +7,7 @@ package unt.herrera.prog2.tp5;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -53,14 +54,23 @@ public class GestorAreas implements IGestorAreas{
                 }       
     }
      
+ /*   Metodo para comparar con mas de un atributo
     
+    public void ordenar (){
+   Comparator<Area> comp= (Area area1,Area area2)->{
+           return area1.getNombre().compareTo(area2.getNombre());
+           }; 
+   listaAreas.sort(comp);
+           }
     
-    
-   
+    */
       
     @Override //OK
     public void mostrarAreas(){  // MUESTRAS LAS AREAS REGISTRADAS EN EL LISTAD
-       Collections.sort(listaAreas,new CompararArea());// ordena antes de mostrar 
+       
+   /* forma corta para una sola condicion (sin utilizar un metodo) */    
+   Collections.sort(listaAreas, (Area a1, Area a2)-> a1.getNombre().compareTo(a2.getNombre())); 
+       
        System.out.println(" Las areas registradas son: ");
         for(Area i: listaAreas){
             System.out.println(i);

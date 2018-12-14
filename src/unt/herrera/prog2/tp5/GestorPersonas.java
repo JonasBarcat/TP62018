@@ -6,6 +6,7 @@
 package unt.herrera.prog2.tp5;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -253,6 +254,31 @@ public class GestorPersonas implements IGestorPersonas{
             }
         }
     }
+    
+    
+    
+    //////// METODO PARA ORDENA (Apellido y nombre)
+    
+    //   Metodo para comparar con mas de un atributo
+    @Override
+    /**
+     * *
+      *Primero revisa si los apellidos con iguales, en el caso de que sean iguales
+      *entra al if y compara por nombres, de lo contrario nunca entra al if  y 
+      * compara normalmente por apellido
+      * 
+       */   
+    public void ordenarPersonas (){
+   Comparator<Persona> comparacionPersona= (Persona persona1,Persona persona2)->{
+    
+       if(persona1.getApellidos().compareToIgnoreCase(persona2.getApellidos())==0){
+             return persona1.getNombres().compareToIgnoreCase(persona2.getNombres());}
+           return persona1.getApellidos().compareToIgnoreCase(persona2.getApellidos());
+           }; 
+
+       listaPersona.sort(comparacionPersona);
+           }
+    
     
     
     

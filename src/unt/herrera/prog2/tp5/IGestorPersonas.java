@@ -23,5 +23,5 @@ public interface IGestorPersonas {
     public void mostrarAlumnos(); 
     public void mostrarProfesores(); 
 
-    
+    public void ordenarPersonas();
 }

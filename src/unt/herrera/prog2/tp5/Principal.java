@@ -97,7 +97,7 @@ public class Principal {
          System.out.println(mensaje1);
          mensaje1=gp.nuevoProfesor("Barcat", "Jonas", 40237598, Cargo.ADJUNTO); // se agrega
          System.out.println(mensaje1);
-         mensaje1=gp.nuevoProfesor("Barat", "Jezabel", 39237598, Cargo.ADG); // se agrega
+         mensaje1=gp.nuevoProfesor("Barcat", "Jezabel", 39237598, Cargo.ADG); // se agrega
          System.out.println(mensaje1);
          mensaje1=gp.nuevoProfesor("Varela", "Sofia", 41152038, Cargo.JTP); // se agrega
          System.out.println(mensaje1);
@@ -105,17 +105,17 @@ public class Principal {
          System.out.println(mensaje1);
          
           System.out.println("\n\n Carga de Alumnos:");  //  CARGA DE ALUMNOS
-         mensaje1=gp.nuevoAlumno("Barcat", "Jonás", 40237598, "1609234"); // no se agrega
+         mensaje1=gp.nuevoAlumno("Barcat", "Jonas", 40237598, "1609234"); // no se agrega
          System.out.println(mensaje1);
          mensaje1=gp.nuevoAlumno("Toreto", "Juliana", 41234398, "1593234"); // se agrega
          System.out.println(mensaje1);
          mensaje1=gp.nuevoAlumno("Manuel", "Jose", 40534198, "1493004"); // se agrega
          System.out.println(mensaje1);
-         mensaje1=gp.nuevoAlumno("Tévez", "Martin", 39534198, "1303004"); // se agrega
+         mensaje1=gp.nuevoAlumno("Tevez", "Martin", 39534198, "1303004"); // se agrega
          System.out.println(mensaje1);
-         mensaje1=gp.nuevoAlumno(null, "Jonás", 40237598, "1609234"); // no se agrega
+         mensaje1=gp.nuevoAlumno(null, "Jonas", 40237598, "1609234"); // no se agrega
          System.out.println(mensaje1);
-         mensaje1=gp.nuevoAlumno("Ance", "Gastón", 40456598, "1619265"); // se agrega
+         mensaje1=gp.nuevoAlumno("Ance", "Gaston", 40456598, "1619265"); // se agrega
          System.out.println(mensaje1);
          
          
@@ -183,6 +183,8 @@ public class Principal {
                  
                  
                //MOSTRAR LAS PERSONAS CARGADAS AL SISTEMA
+               gp.ordenarPersonas(); // Ahora siempre ordenará las personas antes de mostrarlas por apellido y nombre 
+              
                System.out.println("\n\nListado de las personas cargadas en el sistema(Profesores y Alumnos):");
                gp.mostrarPersonas();
                //MOSTRAR LOS PROFESORES
