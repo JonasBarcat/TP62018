@@ -5,7 +5,7 @@
  */
 package unt.herrera.prog2.tp5;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,7 +16,8 @@ public interface IGestorAreas {
     public String nuevaArea(String nombre); 
     public void mostrarAreas(); 
     public Area dameArea(String nombre); 
-    public ArrayList<Area> buscarAreas(String nombre); 
+    public List<Area> buscarAreas(String nombre); 
+    public void ordenarAreas(List<Area> listadodeareas);
 
     
 }

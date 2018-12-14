@@ -5,7 +5,7 @@
  */
 package unt.herrera.prog2.tp5;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -15,8 +15,8 @@ public interface IGestorPersonas {
     
     public String nuevoProfesor(String apellidos, String nombres, int dni, Cargo cargo); 
     public String nuevoAlumno(String apellidos, String nombres, int dni, String cx); 
-    public ArrayList<Profesor> buscarProfesores(String apellidos); 
-    public ArrayList<Alumno> buscarAlumnos(String apellidos);  
+    public List<Profesor> buscarProfesores(String apellidos); 
+    public List<Alumno> buscarAlumnos(String apellidos);  
     public Profesor dameProfesor(int documento);  
     public Alumno dameAlumno(String cx);  
     public void mostrarPersonas(); 

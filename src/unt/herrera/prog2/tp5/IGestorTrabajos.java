@@ -7,6 +7,7 @@ package unt.herrera.prog2.tp5;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,9 +15,9 @@ import java.util.ArrayList;
  */
 public interface IGestorTrabajos {
     
-    public String nuevoTrabajo(String titulo,int duracion,LocalDate fechaPresentacion, LocalDate fechaAprobacion,ArrayList<Area> areas,ArrayList<RolEnTrabajo> profesores, ArrayList<AlumnoEnTrabajo> aet); 
+    public String nuevoTrabajo(String titulo,int duracion,LocalDate fechaPresentacion, LocalDate fechaAprobacion,List<Area> areas,List<RolEnTrabajo> profesores, List<AlumnoEnTrabajo> aet); 
     public Trabajo dameTrabajo(String titulo); 
-    public ArrayList<Trabajo> buscarTrabajos(String titulo); 
+    public List<Trabajo> buscarTrabajos(String titulo); 
     public void mostrarTrabajos(); 
 
 }

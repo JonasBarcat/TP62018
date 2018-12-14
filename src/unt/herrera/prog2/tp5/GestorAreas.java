@@ -6,6 +6,8 @@
 package unt.herrera.prog2.tp5;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  *
@@ -13,7 +15,7 @@ import java.util.ArrayList;
  */
 public class GestorAreas implements IGestorAreas{
     
-    private ArrayList<Area>listaAreas = new ArrayList<>();
+    private List<Area>listaAreas = new ArrayList<>();
     
     
     
@@ -52,8 +54,8 @@ public class GestorAreas implements IGestorAreas{
     }
      
     
-        
     
+      
     @Override //OK
     public void mostrarAreas(){  // MUESTRAS LAS AREAS REGISTRADAS EN EL LISTADO
        System.out.println(" Las areas registradas son: ");
@@ -72,7 +74,7 @@ public class GestorAreas implements IGestorAreas{
         
                 for(Area i: listaAreas){
                         if(i.getNombre().equalsIgnoreCase(nombre)){
-                     bandera=1;  // la bandera nunca sera 1 si no coincide el nombre con al menos un elemento del array
+                     bandera=1;  // la bandera nunca sera 1 si no coincide el nombre con al menos un elemento del list
                      aux = i;
                         break; //solo sirve para que termine el bucle cuando encontro el area buscada
                         }
@@ -91,8 +93,8 @@ public class GestorAreas implements IGestorAreas{
     
     
     @Override //OK
-    public ArrayList<Area> buscarAreas(String nombre){ // BUSCA LAS AREAS QUE CONTENGAN LAS PALABRAS INTRODUCIDAS
-        ArrayList<Area> resultados = new ArrayList();
+    public List<Area> buscarAreas(String nombre){ // BUSCA LAS AREAS QUE CONTENGAN LAS PALABRAS INTRODUCIDAS
+        List<Area> resultados = new ArrayList();
         int bandera=0;
         
             for(Area i: listaAreas){
@@ -118,6 +120,13 @@ public class GestorAreas implements IGestorAreas{
      
     
 
+    @Override
+    public void ordenarAreas(List<Area> listaAreas){
+                     
+            }
+    
+   
+    
     
 }
 

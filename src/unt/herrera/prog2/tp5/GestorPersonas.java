@@ -6,6 +6,7 @@
 package unt.herrera.prog2.tp5;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  */
 public class GestorPersonas implements IGestorPersonas{
     
-    ArrayList<Persona> listaPersona= new ArrayList<>();
+    List<Persona> listaPersona= new ArrayList<>();
    
     
     // siempre para crear un solo gestor
@@ -58,11 +59,11 @@ public class GestorPersonas implements IGestorPersonas{
          Persona profesor = new Profesor(apellidos, nombres, dni, cargo);  
          
          
-                    if(listaPersona.isEmpty()){ // si el array esta vacio entonces agrega al profesor sin problemas
+                    if(listaPersona.isEmpty()){ // si el list esta vacio entonces agrega al profesor sin problemas
                      listaPersona.add(profesor);
                       mensaje="Se agrego el profesor: "+profesor.getApellidos()+" con exito";
                       return mensaje;
-                    }else{ // cuando el array no esta vacio entonces hace control para que no se repitan los profes
+                    }else{ // cuando el list no esta vacio entonces hace control para que no se repitan los profes
          
                     int  b=0; // el bucle for me avisa si el profe esta repetido o no;
                     for(Persona i: listaPersona){
@@ -93,7 +94,7 @@ public class GestorPersonas implements IGestorPersonas{
     
     @Override //OK
     /**
-     * esto es para un nuevo alumno en un arraylist listapersonas, pide String apellido, String nombre,int dni, String cx
+     * esto es para un nuevo alumno en un list list listapersonas, pide String apellido, String nombre,int dni, String cx
     */
     public String nuevoAlumno(String apellidos, String nombres, int dni,String cx){
         String mensaje;
@@ -124,7 +125,7 @@ public class GestorPersonas implements IGestorPersonas{
                            c=1;// c vale 1 cuando encuentra una persona identica a la ingresada
                         }
                     }// cierra for
-           if(c==0){// si ya se encuentra una persona con los mismos datos entonces no la agrega al array
+           if(c==0){// si ya se encuentra una persona con los mismos datos entonces no la agrega al list
                listaPersona.add(alumno);
                mensaje="EL alumno: "+alumno.getApellidos()+". Ha sido cargado con exito";
                return mensaje;
@@ -138,13 +139,13 @@ public class GestorPersonas implements IGestorPersonas{
     
     @Override //OK
     // BUSCA LOS PROFESORES INGRESADOS AL FILTRO
-    public ArrayList<Profesor> buscarProfesores(String apellido){
-    ArrayList<Profesor> resultadoProfesores  = new ArrayList<>(); // aqui se guardan los resultados de las busquedas
+    public List<Profesor> buscarProfesores(String apellido){
+    List<Profesor> resultadoProfesores  = new ArrayList<>(); // aqui se guardan los resultados de las busquedas
     
         if(apellido!=null){
             for(Persona i: listaPersona){
                    if(i instanceof Profesor && i.getApellidos().contains(apellido)){ // filtro para que busque: 1° QUE SEA PROFESOR y 2° QUE TENGA EL APELLIDO DEL FILTRO
-                        resultadoProfesores.add((Profesor) i); // con un operador CAST puedo agregar una persona a un array de profesores
+                        resultadoProfesores.add((Profesor) i); // con un operador CAST puedo agregar una persona a un list de profesores
                      }                                          // pues CAST convierte los tipos de datos                    
             }
         }else{System.out.println("Apellido ingresado incorrecto/null");}
@@ -184,13 +185,13 @@ public class GestorPersonas implements IGestorPersonas{
     
     
     @Override // MUESTRA LOS ALUMNOS QUE TIENEN COINCIDENCIA DE APELLIDO CON EL FILTRO
-    public ArrayList<Alumno> buscarAlumnos(String apellido){
-     ArrayList<Alumno> resultadoAlumnos  = new ArrayList<>(); // aqui se guardan los resultados de las busquedas
+    public List<Alumno> buscarAlumnos(String apellido){
+    List<Alumno> resultadoAlumnos  = new ArrayList<>(); // aqui se guardan los resultados de las busquedas
     
         if(apellido!=null || !apellido.isEmpty()){
             for(Persona i: listaPersona){
                    if(i instanceof Alumno && i.getApellidos().contains(apellido)){ // filtro para que busque: 1° QUE SEA Alumno y 2° QUE TENGA EL APELLIDO DEL FILTRO
-                        resultadoAlumnos.add((Alumno) i); // con un operador CAST puedo agregar una persona a un array de alumnos
+                        resultadoAlumnos.add((Alumno) i); // con un operador CAST puedo agregar una persona a un list de alumnos
                      }                                          // pues CAST convierte los tipos de datos                    
             }
         }else{System.out.println("Apellido ingresado incorrecto/null");}

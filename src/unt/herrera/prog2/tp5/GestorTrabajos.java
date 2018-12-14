@@ -7,13 +7,14 @@ package unt.herrera.prog2.tp5;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author jonas
  */
 public class GestorTrabajos implements IGestorTrabajos {
-    ArrayList<Trabajo> listaTrabajos = new ArrayList<>(); // aqui se almacenaran los trabajos creados 
+    List<Trabajo> listaTrabajos = new ArrayList<>(); // aqui se almacenaran los trabajos creados 
     
     
     // siempre para crear un solo gestor
@@ -33,7 +34,7 @@ public class GestorTrabajos implements IGestorTrabajos {
         
     //METODO QUE CREA LOS TRABAJOS SIEMPRE QUE SE CUMPLAN LAS CONDICIONES IMPLEMENTADAS
     @Override
-    public String nuevoTrabajo(String titulo,int duracion,LocalDate fechaPresentacion, LocalDate fechaAprobacion,ArrayList<Area> areas,ArrayList<RolEnTrabajo> profesores, ArrayList<AlumnoEnTrabajo> aet){
+    public String nuevoTrabajo(String titulo,int duracion,LocalDate fechaPresentacion, LocalDate fechaAprobacion,List<Area> areas,List<RolEnTrabajo> profesores, List<AlumnoEnTrabajo> aet){
     
         
     String mensaje; //utilizo para almacenar y returnar un mensaje si se creo o no el trabajo
@@ -67,7 +68,7 @@ public class GestorTrabajos implements IGestorTrabajos {
         }
 //        
 //        
-        // tambien veamos que no debe de haber peronas repetidas en el array
+        // tambien veamos que no debe de haber peronas repetidas en el list
         for(RolEnTrabajo i: profesores){
             for(int m=profesores.indexOf(i)+1; m<profesores.size(); m++){
                 if(i.equals(profesores.get(m))){
@@ -106,7 +107,7 @@ public class GestorTrabajos implements IGestorTrabajos {
 //        
 //        
 //        
-        // revision de que el array areas no este vacio
+        // revision de que el list areas no este vacio
         if(areas.isEmpty()){
         mensaje="Error. El trabajo debe poseer areas";
         return mensaje;
@@ -122,7 +123,7 @@ public class GestorTrabajos implements IGestorTrabajos {
 
         // veamos que no hayan alumnos repetidos
         
-       ArrayList<AlumnoEnTrabajo> listadealumnosaux= new ArrayList<>();
+       List<AlumnoEnTrabajo> listadealumnosaux= new ArrayList<>();
        for(AlumnoEnTrabajo i: aet){
             if(!listadealumnosaux.contains(i)){
                listadealumnosaux.add(i);
@@ -159,7 +160,7 @@ public class GestorTrabajos implements IGestorTrabajos {
     
     
     
-    // muestro los trabajos en el array
+    // muestro los trabajos en el list
     @Override
     public void mostrarTrabajos(){
             System.out.println("Listado de Trabajos:\n");
@@ -183,12 +184,12 @@ public class GestorTrabajos implements IGestorTrabajos {
     
     // crear una lista con los resultados aproximados
     @Override
-    public ArrayList<Trabajo> buscarTrabajos(String titulo){
-    ArrayList<Trabajo> resultados = new ArrayList<>();// aqui se guardan los resultados de la busqueda
+    public List<Trabajo> buscarTrabajos(String titulo){
+    List<Trabajo> resultados = new ArrayList<>();// aqui se guardan los resultados de la busqueda
     int b=0;      
         for(Trabajo i: listaTrabajos){
             if(i.getTitulo().contains(titulo)){ // si el titulo coincide con el titulo enviado a comparar
-                resultados.add(i); // entonces lo agrega al array de resultados
+                resultados.add(i); // entonces lo agrega al list de resultados
             b=1;
             }
         }     

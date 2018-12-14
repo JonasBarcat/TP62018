@@ -44,7 +44,9 @@ public class Principal {
        
         
         
-      //metodo que muestra todas las areas
+      //metodo que muestra todas las areas 
+        // modificacion: se agrga el metodo ordenar (ordena antes de mostrar)
+        
       System.out.println("\n\n");
         ga.mostrarAreas();
         

@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -24,10 +25,10 @@ private int duracion;
 private LocalDate fechaPresentacion;
 private LocalDate fechaAprobacion;
 private LocalDate fechaExposicion;
-private ArrayList <Area> Areas =new ArrayList <>();
-private ArrayList <Seminario> Seminarios = new ArrayList <>();
-private ArrayList <AlumnoEnTrabajo>aet  = new ArrayList <>();
-private ArrayList <RolEnTrabajo>RolesEnTrabajo  = new ArrayList <>();
+private List <Area> Areas =new ArrayList<>();
+private List <Seminario> Seminarios = new ArrayList <>();
+private List <AlumnoEnTrabajo>aet  = new ArrayList <>();
+private List <RolEnTrabajo>RolesEnTrabajo  = new ArrayList <>();
 
     
     
@@ -81,41 +82,41 @@ private ArrayList <RolEnTrabajo>RolesEnTrabajo  = new ArrayList <>();
         this.fechaExposicion = fechaExposicion;
     }
 
-    public ArrayList <Area> getAreas() {
+    public List <Area> getAreas() {
         return Areas;
     }
 
-    public void setAreas(ArrayList <Area> Areas) {
+    public void setAreas(List <Area> Areas) {
         this.Areas = Areas;
     }
 
-    public ArrayList <Seminario> getSeminarios() {
+    public List <Seminario> getSeminarios() {
         return Seminarios;
     }
 
-    public void setSeminarios(ArrayList <Seminario> Seminarios) {
+    public void setSeminarios(List <Seminario> Seminarios) {
         this.Seminarios = Seminarios;
     }
 
-    public ArrayList <AlumnoEnTrabajo> getAlumnosTrabajando() {
+    public List <AlumnoEnTrabajo> getAlumnosTrabajando() {
         return aet;
     }
 
-    public void setAlumnosTrabajando(ArrayList <AlumnoEnTrabajo> AlumnosTrabajando) {
+    public void setAlumnosTrabajando(List <AlumnoEnTrabajo> AlumnosTrabajando) {
         this.aet = AlumnosTrabajando;
     }
 
-    public ArrayList <RolEnTrabajo> getRolesEnTrabajo() {
+    public List <RolEnTrabajo> getRolesEnTrabajo() {
         return RolesEnTrabajo;
     }
 
-    public void setRolesEnTrabajo(ArrayList <RolEnTrabajo> RolesEnTrabajo) {
+    public void setRolesEnTrabajo(List <RolEnTrabajo> RolesEnTrabajo) {
         this.RolesEnTrabajo = RolesEnTrabajo;
     }
         
     
 
-    public Trabajo(String titulo, int duracion, LocalDate fechaPresentacion, LocalDate fechaAprobacion, LocalDate fechaExposicion,ArrayList <Area>Areas,ArrayList<AlumnoEnTrabajo> AlumnosTrabajando,ArrayList <Seminario> Seminarios,ArrayList<RolEnTrabajo> RolesEnTrabajo) {
+    public Trabajo(String titulo, int duracion, LocalDate fechaPresentacion, LocalDate fechaAprobacion, LocalDate fechaExposicion,List <Area>Areas,List<AlumnoEnTrabajo> AlumnosTrabajando,List <Seminario> Seminarios,List<RolEnTrabajo> RolesEnTrabajo) {
         this.titulo = titulo;
         this.duracion = duracion;
         this.fechaPresentacion = fechaPresentacion;
@@ -128,7 +129,7 @@ private ArrayList <RolEnTrabajo>RolesEnTrabajo  = new ArrayList <>();
         
     }
     
-     public Trabajo(String titulo,ArrayList <Area>Areas, int duracion, LocalDate fechaAprobacion,ArrayList<AlumnoEnTrabajo> AlumnosTrabajando,ArrayList<RolEnTrabajo> RolesEnTrabajo) {
+     public Trabajo(String titulo,List <Area>Areas, int duracion, LocalDate fechaAprobacion,List<AlumnoEnTrabajo> AlumnosTrabajando,List<RolEnTrabajo> RolesEnTrabajo) {
         this.titulo = titulo;
         this.Areas=Areas;
         this.duracion = duracion;
@@ -139,7 +140,7 @@ private ArrayList <RolEnTrabajo>RolesEnTrabajo  = new ArrayList <>();
         
     }
 
-    public Trabajo(String titulo, int duracion, LocalDate fechaPresentacion, LocalDate fechaAprobacion,ArrayList<Area> areas,ArrayList<RolEnTrabajo> profesores,ArrayList<AlumnoEnTrabajo> aet) {
+    public Trabajo(String titulo, int duracion, LocalDate fechaPresentacion, LocalDate fechaAprobacion,List<Area> areas,List<RolEnTrabajo> profesores,List<AlumnoEnTrabajo> aet) {
         this.titulo = titulo;
         this.duracion = duracion;
         this.fechaPresentacion = fechaPresentacion;
