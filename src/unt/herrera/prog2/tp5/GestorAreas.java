@@ -64,10 +64,10 @@ public class GestorAreas implements IGestorAreas{
            }
     
     */
-      
+     
     @Override //OK
     public void mostrarAreas(){  // MUESTRAS LAS AREAS REGISTRADAS EN EL LISTAD
-       
+    
    /* forma corta para una sola condicion (sin utilizar un metodo) */    
    Collections.sort(listaAreas, (Area a1, Area a2)-> a1.getNombre().compareTo(a2.getNombre())); 
        
