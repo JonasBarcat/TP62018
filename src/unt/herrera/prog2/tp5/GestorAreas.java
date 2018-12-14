@@ -55,9 +55,12 @@ public class GestorAreas implements IGestorAreas{
      
     
     
+    
+   
       
     @Override //OK
-    public void mostrarAreas(){  // MUESTRAS LAS AREAS REGISTRADAS EN EL LISTADO
+    public void mostrarAreas(){  // MUESTRAS LAS AREAS REGISTRADAS EN EL LISTAD
+       Collections.sort(listaAreas,new CompararArea());// ordena antes de mostrar 
        System.out.println(" Las areas registradas son: ");
         for(Area i: listaAreas){
             System.out.println(i);
@@ -120,12 +123,6 @@ public class GestorAreas implements IGestorAreas{
      
     
 
-    @Override
-    public void ordenarAreas(List<Area> listaAreas){
-                     
-            }
-    
-   
     
     
 }
