@@ -213,11 +213,83 @@ public class GestorTrabajos implements IGestorTrabajos {
      };
       this.listaTrabajos.sort(ComparadorTrabajos);
     }
+    public String finalizarAlumno(Trabajo trabajo, Alumno alumno, LocalDate fechaHasta,
+String razon){
+        for(AlumnoEnTrabajo e: listaTrabajos.get(listaTrabajos.indexOf(trabajo)).getAlumnosTrabajando()){if(e.getAlumno1().equals(alumno)){
+            e.setFechaHasta(fechaHasta);
+            
+            return "La fecha de finalizacion del alumno en el trabajo es:"+fechaHasta;}}
+        
+    return "No se finalizo a ningun alumno";    
+   }
     
+    String finalizartrabajo;
+   @Override
+   public String finalizarTrabajo(Trabajo trabajo, LocalDate fechaExposicion){
+       
+        if(fechaExposicion.isBefore(trabajo.getFechaAprobacion())){
+            finalizartrabajo="Error. Fecha de aprobacion invalida";
+            System.out.println(finalizartrabajo);
+            return finalizartrabajo;
+        }
+        
+            trabajo.setFechaExposicion(fechaExposicion); // elimina los prof y alum del trabajo 
+            trabajo.getAlumnosTrabajando().clear();  // tambien fija la fecha de exposicion final
+            trabajo.getRolesEnTrabajo().clear(); 
+        
+       finalizartrabajo="Trabajo finalizado exitosamente";
+       return finalizartrabajo;
+   } 
+   
+   
+   
+   
+   
+  String borrartrabajo;
+   @Override
+   public String borrarTrabajo(Trabajo trabajo){
+       
+        for(Trabajo i: listaTrabajos){
+            if(trabajo.equals(i) && trabajo.getSeminarios().isEmpty()){// es decir el trabajo no tiene asociado ningun seminario
+                listaTrabajos.remove(i);// entonces remueve el trabajo que se paso por el parametro
+                borrartrabajo="Trabajo borrado exitosamente";
+                return borrartrabajo;
+                                                                      }
+                                        } 
+        borrartrabajo="Error. No se puede eliminar un trabajo que tenga asociado un seminario";
+        return borrartrabajo;      
+                                                }
+
+  @Override
+    public String nuevoTrabajo(String titulo, ArrayList<Area> area, int duracion, LocalDate fechaPresentacion, LocalDate fechaAprobacion, ArrayList<AlumnoEnTrabajo> listaAlumnoEnT, ArrayList<RolEnTrabajo> listaRolEnT) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }  
+
     @Override
-   public String nuevoSeminario(LocalDate fechaExposicion, NotaAprobacion notaAprobacion,String observaciones){
-   return null;}
+    public String reemplazarProfesor(Trabajo trabajo, Profesor profesorReemplazado, LocalDate fechaHasta, String razon, Profesor nuevoProfesor) {
+        
+       for(RolEnTrabajo a: listaTrabajos.get(listaTrabajos.indexOf(trabajo)).getRolesEnTrabajo() )
+       {if(a.getUnProfesor().equals(profesorReemplazado)){
+       a.setFechaHasta(fechaHasta);
+       a.setRazon(razon);
+       RolEnTrabajo nuevoRol= new RolEnTrabajo(fechaHasta,nuevoProfesor,a.getUnRol());
+      // if(trabajo.getRolesEnTrabajo()(nuevoProfesor)){}
+       
+       
+       }
+       } 
+        
+        
+        
+        
+        
+        return null;
+    }
     
     
 }
 
+
+
+    
+   
