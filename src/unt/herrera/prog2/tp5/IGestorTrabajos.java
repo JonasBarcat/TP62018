@@ -19,6 +19,11 @@ public interface IGestorTrabajos {
     public List<Trabajo> buscarTrabajos(String titulo); 
     public void mostrarTrabajos(); 
     public void ordenarTrabajos();
-    public String nuevoSeminario(LocalDate fechaExposicion, NotaAprobacion notaAprobacion,String observaciones);
+    
+    
+    public String finalizarTrabajo(Trabajo trabajo, LocalDate fechaExposicion); 
+    public String borrarTrabajo(Trabajo trabajo); 
+
+    
     
 }

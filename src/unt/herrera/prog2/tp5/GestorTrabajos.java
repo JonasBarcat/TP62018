@@ -42,7 +42,12 @@ public class GestorTrabajos implements IGestorTrabajos {
     RolEnTrabajo aux=null;
     
    
+    // se agregara un filtro que no permite crear un trabajo si hay un alumno de otro trabajo existente
     
+        for(Trabajo i: listaTrabajos){
+            
+            
+        }
        
      
         if(titulo.isEmpty() || titulo==null || duracion<=0){ // colocaremos condiciones if por separado para identifica con un mensaje donde salte el primer error
@@ -214,10 +219,47 @@ public class GestorTrabajos implements IGestorTrabajos {
       this.listaTrabajos.sort(ComparadorTrabajos);
     }
     
-    @Override
-   public String nuevoSeminario(LocalDate fechaExposicion, NotaAprobacion notaAprobacion,String observaciones){
-   return null;}
+   
     
-    
-}
+   String finalizartrabajo;
+   @Override
+   public String finalizarTrabajo(Trabajo trabajo, LocalDate fechaExposicion){
+       
+        if(fechaExposicion.isBefore(trabajo.getFechaAprobacion())){
+            finalizartrabajo="Error. Fecha de aprobacion invalida";
+            System.out.println(finalizartrabajo);
+            return finalizartrabajo;
+        }
+        
+            trabajo.setFechaExposicion(fechaExposicion); // elimina los prof y alum del trabajo 
+            trabajo.getAlumnosTrabajando().clear();  // tambien fija la fecha de exposicion final
+            trabajo.getRolesEnTrabajo().clear(); 
+        
+       finalizartrabajo="Trabajo finalizado exitosamente";
+       return finalizartrabajo;
+   } 
+   
+   
+   
+   
+   
+   String borrartrabajo;
+   @Override
+   public String borrarTrabajo(Trabajo trabajo){
+       
+        for(Trabajo i: listaTrabajos){
+            if(trabajo.equals(i) && trabajo.getSeminarios().isEmpty()){// es decir el trabajo no tiene asociado ningun seminario
+                listaTrabajos.remove(i);// entonces remueve el trabajo que se paso por el parametro
+                borrartrabajo="Trabajo borrado exitosamente";
+                return borrartrabajo;
+            }
+            
+       borrartrabajo="Error. No se puede eliminar un trabajo que tenga asociado un seminario";
+       
+   return borrartrabajo;
+   } 
+   
+   
+   
+
 
