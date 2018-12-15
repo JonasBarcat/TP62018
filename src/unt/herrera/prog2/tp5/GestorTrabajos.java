@@ -213,9 +213,6 @@ public class GestorTrabajos implements IGestorTrabajos {
      };
       this.listaTrabajos.sort(ComparadorTrabajos);
     }
-
     
-    //esto es una prueba 
-    public void nada (){}
-        
 }
+
