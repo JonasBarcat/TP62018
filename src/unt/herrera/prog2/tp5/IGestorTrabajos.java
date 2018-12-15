@@ -19,7 +19,7 @@ public interface IGestorTrabajos {
     public Trabajo dameTrabajo(String titulo); 
     public List<Trabajo> buscarTrabajos(String titulo); 
     public void mostrarTrabajos(); 
-    
+    public void ordenarTrabajos();
 
 
 }
