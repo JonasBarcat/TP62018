@@ -261,12 +261,21 @@ public class Principal {
           alumnoentrabajo1.add(listaalumnoentrabajo.get(3));
 
 
+            // Cree nuevos trabajos para realizar los controles de fechas de ordenarTrabajos
             mensaje2=gt.nuevoTrabajo("Big data research", 6, LocalDate.of(2018,11,27), LocalDate.of(2018, 11, 27),areastrabajo1,profesortrabajo1,alumnoentrabajo1);
             System.out.println(mensaje2);
             mensaje2=gt.nuevoTrabajo("Global Wireless", 6, LocalDate.of(2018,11,27), LocalDate.of(2018, 11, 27),areastrabajo1,profesortrabajo1,alumnoentrabajo1);
             System.out.println(mensaje2);
             // el siguiente trabajo es un "trabajo con el mismo nombre", entonces no lo añade al list de trabajos
-            mensaje2=gt.nuevoTrabajo("Big data research", 6, LocalDate.of(2018,11,27), LocalDate.of(2018, 11, 27),areastrabajo1,profesortrabajo1,alumnoentrabajo1);
+            mensaje2=gt.nuevoTrabajo("Big data research", 6, LocalDate.of(2018,10,26), LocalDate.of(2018, 11, 27),areastrabajo1,profesortrabajo1,alumnoentrabajo1);
+            System.out.println(mensaje2);
+            mensaje2=gt.nuevoTrabajo("Graduacion", 6, LocalDate.of(2018,9,25), LocalDate.of(2018, 11, 27),areastrabajo1,profesortrabajo1,alumnoentrabajo1);
+            System.out.println(mensaje2);
+            mensaje2=gt.nuevoTrabajo("Proyecto Final", 6, LocalDate.of(2018,8,24), LocalDate.of(2018, 11, 27),areastrabajo1,profesortrabajo1,alumnoentrabajo1);
+            System.out.println(mensaje2);
+            mensaje2=gt.nuevoTrabajo("Pasantia", 6, LocalDate.of(2018,7,23), LocalDate.of(2018, 11, 27),areastrabajo1,profesortrabajo1,alumnoentrabajo1);
+            System.out.println(mensaje2);
+            mensaje2=gt.nuevoTrabajo("Armado de Sistemas", 6, LocalDate.of(2018,11,27), LocalDate.of(2018, 11, 27),areastrabajo1,profesortrabajo1,alumnoentrabajo1);
             System.out.println(mensaje2);
             
             //////////////////////////////////////////////////////////////////////
@@ -274,6 +283,7 @@ public class Principal {
             
             //muestra todos los trabajos cargados en el sistema
             System.out.println("\n\n\nLos trabajos registrados en el sistema son:");
+            gt.ordenarTrabajos();
             gt.mostrarTrabajos();
             
             
