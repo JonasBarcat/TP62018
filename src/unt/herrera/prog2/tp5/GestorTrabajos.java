@@ -7,6 +7,7 @@ package unt.herrera.prog2.tp5;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -197,7 +198,24 @@ public class GestorTrabajos implements IGestorTrabajos {
     return resultados;
     }
 
+    @Override
+    public void ordenarTrabajos() {
+     Comparator<Trabajo> ComparadorTrabajos=(Trabajo1, Trabajo2)->{
+         
+         if(Trabajo1.getFechaPresentacion().compareTo(Trabajo2.getFechaPresentacion())==0){
+             
+             return Trabajo1.getTitulo().compareToIgnoreCase(Trabajo2.getTitulo());
+             
+         }
+         
+         
+         return Trabajo2.getFechaPresentacion().compareTo(Trabajo1.getFechaPresentacion());
+     };
+      this.listaTrabajos.sort(ComparadorTrabajos);
+    }
+
     
-    
+    //esto es una prueba 
+    public void nada (){}
         
 }
