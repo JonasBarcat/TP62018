@@ -41,6 +41,19 @@ public class GestorTrabajos implements IGestorTrabajos {
     String mensaje; //utilizo para almacenar y returnar un mensaje si se creo o no el trabajo
     RolEnTrabajo aux=null;
     
+//    // metodo para no crear trabajo si el alumno ya esta en otro trabajo
+//        for(int m=0; m<aet.size();m++ ){
+//            for(Trabajo i: listaTrabajos){
+//                for(int n=0; n<i.getAlumnosTrabajando().size(); n++){
+//                 
+//                    if(aet.get(m).equals(i.getAlumnosTrabajando().get(n))){ // si hay alumnos iguales
+//                        mensaje="No se pudo crear el trabajo. Hay un alumno que ya se encuentra en uno";
+//                        return mensaje;
+//                    }
+//                           
+//                 }
+//            }
+//        }
    
     
        
@@ -150,6 +163,9 @@ public class GestorTrabajos implements IGestorTrabajos {
     mensaje="Trabajo creado exitosamente";    
         
     return mensaje;
+    
+    
+    
     }
 
     
@@ -258,24 +274,24 @@ String razon){
                                         } 
         borrartrabajo="Error. No se puede eliminar un trabajo que tenga asociado un seminario";
         return borrartrabajo;      
-                                                }
-
-  @Override
-    public String nuevoTrabajo(String titulo, ArrayList<Area> area, int duracion, LocalDate fechaPresentacion, LocalDate fechaAprobacion, ArrayList<AlumnoEnTrabajo> listaAlumnoEnT, ArrayList<RolEnTrabajo> listaRolEnT) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }  
+                                                } 
 
     @Override
     public String reemplazarProfesor(Trabajo trabajo, Profesor profesorReemplazado, LocalDate fechaHasta, String razon, Profesor nuevoProfesor) {
         
        for(RolEnTrabajo a: listaTrabajos.get(listaTrabajos.indexOf(trabajo)).getRolesEnTrabajo() )
-       {if(a.getUnProfesor().equals(profesorReemplazado)){
+       {
+           
+           if(a.getUnProfesor().equals(profesorReemplazado)){
        a.setFechaHasta(fechaHasta);
        a.setRazon(razon);
        RolEnTrabajo nuevoRol= new RolEnTrabajo(fechaHasta,nuevoProfesor,a.getUnRol());
-      // if(trabajo.getRolesEnTrabajo()(nuevoProfesor)){}
+       if(listaTrabajos.get(listaTrabajos.indexOf(trabajo)).getRolesEnTrabajo()     .contains(nuevoRol)){
+       return "No se reemplaza";}
        
-       
+       listaTrabajos.get(listaTrabajos.indexOf(trabajo)).getRolesEnTrabajo().add(nuevoRol);
+       listaTrabajos.get(listaTrabajos.indexOf(trabajo)).getRolesEnTrabajo().remove(a);
+       return "Se reemplazo correctamente";
        }
        } 
         
@@ -286,10 +302,22 @@ String razon){
         return null;
     }
     
+       
     
-}
-
-
-
     
-   
+    
+    @Override
+    public String nuevoTrabajo(String titulo, ArrayList<Area> area, int duracion, LocalDate fechaPresentacion, LocalDate fechaAprobacion, ArrayList<AlumnoEnTrabajo> listaAlumnoEnT, ArrayList<RolEnTrabajo> listaRolEnT) {
+       String Comprobacion;
+        Comprobacion=this.nuevoTrabajo(titulo, duracion, fechaPresentacion, fechaAprobacion, area, listaRolEnT, listaAlumnoEnT);
+        if(!Comprobacion.equals("Trabajo creado exitosamente")){
+        return "No se creo el trabajo.";}
+        for(Trabajo t: listaTrabajos){
+       if(t.getAlumnosTrabajando().contains(listaAlumnoEnT)){ 
+           return "No se puede crear el trabajo porque el o los alummnos estan en otro trabajo";}
+       }
+       
+      return "Se creo el trabajo correctamente";
+    }  
+    
+        }

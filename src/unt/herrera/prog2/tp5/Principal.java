@@ -117,6 +117,12 @@ public class Principal {
          System.out.println(mensaje1);
          mensaje1=gp.nuevoAlumno("Ance", "Gaston", 40456598, "1619265"); // se agrega
          System.out.println(mensaje1);
+//         mensaje1=gp.nuevoAlumno("Berarducci", "Gianpaolo", 40902553, "1500155"); // se agrega
+//         System.out.println(mensaje1);
+//         mensaje1=gp.nuevoAlumno("Bustos", "Miguel", 40302598, "1123265"); // se agrega
+//         System.out.println(mensaje1);
+//         mensaje1=gp.nuevoAlumno("Ruiz", "Ana", 41232598, "1123321"); // se agrega
+//         System.out.println(mensaje1);
          
          
          
@@ -230,7 +236,13 @@ public class Principal {
                 listaalumnoentrabajo.add(alumnoentrabajo);
             alumnoentrabajo=gaet.nuevoAlumnoEnTrabajo(LocalDate.of(2018,12,1), gp.dameAlumno("1619265"));
                 listaalumnoentrabajo.add(alumnoentrabajo);
-        
+//            alumnoentrabajo=gaet.nuevoAlumnoEnTrabajo(LocalDate.of(2018,12,6), gp.dameAlumno("1500155"));
+//                listaalumnoentrabajo.add(alumnoentrabajo);
+//            alumnoentrabajo=gaet.nuevoAlumnoEnTrabajo(LocalDate.of(2018,12,9), gp.dameAlumno("1123265"));
+//                listaalumnoentrabajo.add(alumnoentrabajo);
+//            alumnoentrabajo=gaet.nuevoAlumnoEnTrabajo(LocalDate.of(2018,12,10), gp.dameAlumno("1123321"));
+//                listaalumnoentrabajo.add(alumnoentrabajo);
+            
             
         //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||        
         //*****************************TRABAJOS***********************************
@@ -246,6 +258,7 @@ public class Principal {
           List<Area> areastrabajo1 = new ArrayList<>();
           areastrabajo1.add(ga.dameArea("Software"));
           areastrabajo1.add(ga.dameArea("Hardware"));
+          
    
           List<RolEnTrabajo> profesortrabajo1 = new ArrayList<>();
           profesortrabajo1.add(listarolentrabajo.get(0)); 
@@ -255,10 +268,28 @@ public class Principal {
           
           List<AlumnoEnTrabajo> alumnoentrabajo1=new ArrayList<>();
           alumnoentrabajo1.add(listaalumnoentrabajo.get(0));
-     
           alumnoentrabajo1.add(listaalumnoentrabajo.get(1));
           alumnoentrabajo1.add(listaalumnoentrabajo.get(2));
           alumnoentrabajo1.add(listaalumnoentrabajo.get(3));
+          
+          //informacion para el trabajo 2
+          
+//          List<Area> areastrabajo2 = new ArrayList<>();
+//          areastrabajo2.add(ga.dameArea("Redes"));
+//          areastrabajo2.add(ga.dameArea("Internet"));
+//          
+//   
+//          List<RolEnTrabajo> profesortrabajo2 = new ArrayList<>();
+//          profesortrabajo2.add(listarolentrabajo.get(0)); 
+//          profesortrabajo2.add(listarolentrabajo.get(3)); 
+//          profesortrabajo2.add(listarolentrabajo.get(2));
+//          profesortrabajo2.add(listarolentrabajo.get(1));
+//          
+//          List<AlumnoEnTrabajo> alumnoentrabajo2=new ArrayList<>();
+//          alumnoentrabajo2.add(listaalumnoentrabajo.get(4));
+//          alumnoentrabajo2.add(listaalumnoentrabajo.get(5));
+//          alumnoentrabajo2.add(listaalumnoentrabajo.get(6));
+          
 
 
             // Cree nuevos trabajos para realizar los controles de fechas de ordenarTrabajos
@@ -277,6 +308,14 @@ public class Principal {
             System.out.println(mensaje2);
             mensaje2=gt.nuevoTrabajo("Armado de Sistemas", 6, LocalDate.of(2018,11,27), LocalDate.of(2018, 11, 27),areastrabajo1,profesortrabajo1,alumnoentrabajo1);
             System.out.println(mensaje2);
+            
+            
+//            Seminario seminarios2= new Seminario(gt.dameTrabajo("Redes").getFechaExposicion(), NotaAprobacion.DESAPROBADO, "hola");
+//           List<Seminario> seminariosTrabajo2= new ArrayList<>();
+//           seminariosTrabajo2.add(seminarios2);
+//      
+//            System.out.println(mensaje2);
+            
             
             //////////////////////////////////////////////////////////////////////
              
