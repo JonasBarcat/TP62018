@@ -10,6 +10,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -115,6 +116,10 @@ private List <RolEnTrabajo>RolesEnTrabajo  = new ArrayList <>();
     }
         
     
+    
+    
+    
+    
 
     public Trabajo(String titulo, int duracion, LocalDate fechaPresentacion, LocalDate fechaAprobacion, LocalDate fechaExposicion,List <Area>Areas,List<AlumnoEnTrabajo> AlumnosTrabajando,List <Seminario> Seminarios,List<RolEnTrabajo> RolesEnTrabajo) {
         this.titulo = titulo;
@@ -203,34 +208,7 @@ private List <RolEnTrabajo>RolesEnTrabajo  = new ArrayList <>();
     System.out.print("\n");}
     
     
-//    
-//    System.out.println("\nTutor\n----------------");
-//    for(RolEnTrabajo r:RolesEnTrabajo){
-//    if(r.getUnRol()==Rol.TUTOR){
-//    r.toString();}   
-//    }
-    
-//    
-//    System.out.println("\nCotutor\n----------------");
-//    for(RolEnTrabajo r:RolesEnTrabajo){
-//     if(r.getUnRol()==Rol.COTUTOR){
-//    r.toString();}
-//    }
-    
-//    System.out.println("\nJurado\n----------------");
-//    for(RolEnTrabajo r:RolesEnTrabajo){
-//    if(r.getUnRol()==Rol.JURADO){
-//     r.toString();   
-//    }}
-     
-//    for(Area a:Areas){
-//    System.out.println(a);}
-//    
-//    
-//    
-//    for(Seminario s:Seminarios){
-//    s.mostrar();                        
-//  }   
+
     
 }
     
@@ -256,10 +234,95 @@ private List <RolEnTrabajo>RolesEnTrabajo  = new ArrayList <>();
     
     
     
-//    public void AgregarUnAlumnoAAlumnoEnTrabajo(LocalDate fechaDesde,Alumno AlumnoUNO){
-//    
-//    AlumnoEnTrabajo NUEVOALUMNOTRABAJANDO=new AlumnoEnTrabajo(fechaDesde,this.fechaAprobacion,"no tiene ganas de trabajar",AlumnoUNO);
-//   this.AlumnosTrabajando.add(NUEVOALUMNOTRABAJANDO);}
+    
+    
+    
+    // nuevos metodos de la clase trabajo  creacion de nuevo seminario
+    String mensaje1;
+    public String nuevoSeminario(LocalDate fechaExposicion,NotaAprobacion notaAprobacion, String observaciones){
+    
+            // solicito al gestor seminario la validacion de datos
+            GestorSeminario gs= GestorSeminario.crear(); // creo el gestor seminario para consultar si los datos son correctos
+                mensaje1=gs.validarSeminario(fechaExposicion, notaAprobacion, observaciones);
+                
+       // si los datos ingresados son correctos y la fecha de exposicion ademas de no ser nula es posterior a la de aprobacion...    
+                if(mensaje1.equalsIgnoreCase("exito") && fechaExposicion.isAfter(this.fechaAprobacion)){
+                    
+                    //creamos y luego agregaremos el seminario al array mientras este no se encuentre ya en el mismo
+                        Seminario nuevoseminarios = new Seminario(fechaExposicion, notaAprobacion,observaciones);
+                        if(!Seminarios.contains(nuevoseminarios)){
+                            Seminarios.add(nuevoseminarios);
+                            mensaje1="Nuevo seminario agregado al sistema";    
+                        }else{
+                            mensaje1="El seminario ingresado ya se encuntra en el sistema";
+                            }
+                }else mensaje1="Error. No se pudo crear el seminario";
+            
+                
+             
+                
+            return mensaje1;
+    }  
+
+    
+    
+    
+    
+    ///// nuevos metodos de la clase trabajo metodo para modificar un seminario
+/*    
+deberá controlar que los valores de los parámetros recibidos sean correctos.  
+deberá modificar los datos de un Seminario. 
+deberá informar el resultado de la operación
+*/
+    String mensaje2;
+    public String modificarSeminario(Seminario seminario,NotaAprobacion notaAprobacion, String observaciones){
+              
+        
+// veamos que seminario,nota aprobacion y obs sean correctas 
+                if(seminario.getFechaExposicion().isBefore(fechaAprobacion)){
+                    mensaje2="Error. Fecha de exposicion incorrecta";
+                    System.out.println("Error. Fecha de exposicion incorrecta");
+                    return mensaje2;
+                }
+                if(notaAprobacion==notaAprobacion.APROBADO_CONOBS && observaciones==null){
+                    mensaje2="Error. No se ingresaron observaciones";
+                    System.out.println("Error. No se ingresaron observaciones"); 
+                    return mensaje2;
+                }
+                if(notaAprobacion==notaAprobacion.DESAPROBADO && observaciones==null){
+                    mensaje2="Error. No se ingresaron observaciones";
+                    System.out.println("Error. No se ingresaron observaciones"); 
+                    return mensaje2;
+                }
+        //si los datos ingresados estan bien entonces continua con el metodo y modifica el seminario    
+                seminario.setFechaExposicion(fechaExposicion);
+                seminario.setAprobacion(notaAprobacion);
+                seminario.setObservaciones(observaciones);
+                mensaje2="Seminario actualizado exitosamente";
+        
+        return mensaje2;
+    }  
+
+    
+   
+    /// metodo para ordenar los seminarios en forma descendente por fecha de exposicion
+         public void ordenarSeminarios(){
+           Comparator<Seminario> comparacionSeminario = (Seminario semi1,Seminario semi2)->{
+              return semi1.getFechaExposicion().compareTo(semi2.getFechaExposicion());};
+          Seminarios.sort(comparacionSeminario);
+            }
+            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 //        
 
     @Override
