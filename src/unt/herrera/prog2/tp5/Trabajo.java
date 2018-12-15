@@ -252,6 +252,8 @@ private List <RolEnTrabajo>RolesEnTrabajo  = new ArrayList <>();
     }      
     }
     
+    public String nuevoSeminario(LocalDate fechaExposicion, NotaAprobacion notaAprobacion, String observaciones){
+    return null;}
     
     
     
