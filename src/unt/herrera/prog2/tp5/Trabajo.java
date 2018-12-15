@@ -230,15 +230,7 @@ private List <RolEnTrabajo>RolesEnTrabajo  = new ArrayList <>();
     }      
     }
     
-    public String nuevoSeminario(LocalDate fechaExposicion, NotaAprobacion notaAprobacion, String observaciones){
-    return null;}
-    
-    
-    
-    
-    
-    
-    
+ 
     // nuevos metodos de la clase trabajo  creacion de nuevo seminario
     String mensaje1;
     public String nuevoSeminario(LocalDate fechaExposicion,NotaAprobacion notaAprobacion, String observaciones){
