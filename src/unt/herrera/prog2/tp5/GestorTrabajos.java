@@ -55,7 +55,12 @@ public class GestorTrabajos implements IGestorTrabajos {
 //            }
 //        }
    
+    // se agregara un filtro que no permite crear un trabajo si hay un alumno de otro trabajo existente
     
+        for(Trabajo i: listaTrabajos){
+            
+            
+        }
        
      
         if(titulo.isEmpty() || titulo==null || duracion<=0){ // colocaremos condiciones if por separado para identifica con un mensaje donde salte el primer error
@@ -319,5 +324,5 @@ String razon){
        
       return "Se creo el trabajo correctamente";
     }  
-    
+
         }
