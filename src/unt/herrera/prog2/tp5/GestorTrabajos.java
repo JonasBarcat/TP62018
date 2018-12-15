@@ -151,7 +151,7 @@ public class GestorTrabajos implements IGestorTrabajos {
         
     return mensaje;
     }
-    
+
     
     
     
@@ -213,6 +213,11 @@ public class GestorTrabajos implements IGestorTrabajos {
      };
       this.listaTrabajos.sort(ComparadorTrabajos);
     }
+    
+    @Override
+   public String nuevoSeminario(LocalDate fechaExposicion, NotaAprobacion notaAprobacion,String observaciones){
+   return null;}
+    
     
 }
 

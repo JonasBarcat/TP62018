@@ -24,4 +24,9 @@ public interface IGestorPersonas {
     public void mostrarProfesores(); 
 
     public void ordenarPersonas();
+    public String modificarProfesor(Profesor profesor, String apellidos, String nombres, Cargo cargo);
+    public String modificarAlumno(Alumno alumno, String apellidos, String nombres, String cx);
+    public String borrarProfesor(Profesor profesor);
+    public String borrarAlumno(Alumno alumno);
 }
+    

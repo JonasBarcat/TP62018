@@ -131,7 +131,10 @@ public class GestorAreas implements IGestorAreas{
      return resultados;   
     }
      
-    
+    public String borrarArea(Area area){
+       
+        
+    return null; }
 
     
     

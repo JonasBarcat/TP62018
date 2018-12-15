@@ -289,6 +289,7 @@ public class Principal {
             
             
             // Busqueda de trabajo por nombre exacto
+            
             Trabajo busquedatrabajo;
             System.out.println("\n\n\n    Busqueda de Trabajo por nombre exacto:\n");
             busquedatrabajo=gt.dameTrabajo("Global Wireless"); //filtro especificado "Global Wireless"

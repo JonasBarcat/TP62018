@@ -278,6 +278,60 @@ public class GestorPersonas implements IGestorPersonas{
 
        listaPersona.sort(comparacionPersona);
            }
+
+    @Override
+    public String modificarProfesor(Profesor profesor, String apellidos, String nombres, Cargo cargo) {
+       if(listaPersona.contains(profesor)){
+        
+       listaPersona.get(listaPersona.indexOf(profesor)).setApellidos(apellidos);
+       listaPersona.get(listaPersona.indexOf(profesor)).setNombres(nombres);
+       return "Se hicieron las modificaciones pertinentes";
+       }
+       else{return "no se hicieron modificaciones";}
+       
+    }
+
+    @Override
+    public String modificarAlumno(Alumno alumno, String apellidos, String nombres, String cx) {
+       if(listaPersona.contains(alumno)){
+        
+       listaPersona.get(listaPersona.indexOf(alumno)).setApellidos(apellidos);
+       listaPersona.get(listaPersona.indexOf(alumno)).setNombres(nombres);
+        return "Se hicieron las modificaciones pertinentes";
+    }
+       else{
+        return "No see hicieron modificaciones";}
+    }
+
+    @Override
+    public String borrarProfesor(Profesor profesor) {
+      
+       if(listaPersona.contains(profesor)){
+                 if(GT.listaTrabajos.contains(profesor)){
+                     return "No se hicieron cambios en la lista";    
+                                                        }
+                 else{
+                      listaPersona.remove(profesor);
+                        return "Se removio al alumno de la lista";}
+                        }   
+             return "No se hicieron cambios en la lista"; 
+    
+    }
+GestorTrabajos GT=GestorTrabajos.crear();
+    @Override
+    public String borrarAlumno(Alumno alumno) {
+         
+             
+             if(listaPersona.contains(alumno)){
+                 if(GT.listaTrabajos.contains(alumno)){
+                     return "No se hicieron cambios en la lista";    
+                                                        }
+                 else{
+                      listaPersona.remove(alumno);
+                        return "Se removio al alumno de la lista";}
+                        }   
+             return "No se hicieron cambios en la lista"; 
+    }
     
     
     
